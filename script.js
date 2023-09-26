@@ -3,7 +3,7 @@
 // GLOBAL VARIABLES //
 
 let OPERATOR = "",
-    FIRST_OPERAND = "0",
+    FIRST_OPERAND = "",
     SECOND_OPERAND = "",
     DISPLAY_VALUE = "";
 
@@ -21,8 +21,6 @@ const displaySecondElement = document.querySelector(".display__second");
 const clearEntryButtonElement = document.querySelector(".button--clear-entry");
 const clearButtonElement = document.querySelector(".button--clear");
 const numbersButtonsElements = document.querySelectorAll(".button--number");
-console.log("🚀 -> numbersButtonsElements:", numbersButtonsElements);
-
 const operatorButtonElement = document.querySelectorAll(".button--operator");
 const decimalButtonElement = document.querySelector(".button--decimal");
 const equalButtonElement = document.querySelector(".button--equal");
