@@ -20,7 +20,9 @@ const displaySecondElement = document.querySelector(".display__second");
 // ButtonsElements
 const clearEntryButtonElement = document.querySelector(".button--clear-entry");
 const clearButtonElement = document.querySelector(".button--clear");
-const numbersButtonsElements = document.querySelectorAll(".buttons--number");
+const numbersButtonsElements = document.querySelectorAll(".button--number");
+console.log("🚀 -> numbersButtonsElements:", numbersButtonsElements);
+
 const operatorButtonElement = document.querySelectorAll(".button--operator");
 const decimalButtonElement = document.querySelector(".button--decimal");
 const equalButtonElement = document.querySelector(".button--equal");
