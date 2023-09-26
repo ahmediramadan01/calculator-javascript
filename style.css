@@ -42,3 +42,35 @@ button {
         0px 68px 41px 0px rgba(0, 0, 0, 0.15), 0px 120px 48px 0px rgba(0, 0, 0, 0.04),
         0px 188px 52px 0px rgba(0, 0, 0, 0.01), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+/* Display Styles */
+
+.display {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2.2rem;
+    margin-bottom: 2.6rem;
+    flex-grow: 1;
+}
+
+.display__previous {
+    color: #6b6b6b;
+    text-align: right;
+    font-size: 2rem;
+    line-height: 140%;
+    letter-spacing: -0.4px;
+    margin-bottom: 0.8rem;
+    flex-grow: 1;
+}
+
+.display__operation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 3.2rem;
+    color: #ebebeb;
+}
+
+.display__equal {
+    color: #6b6b6b;
+}
