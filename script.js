@@ -44,16 +44,16 @@ const divide = function (a, b) {
     return parseFloat(a) / parseFloat(b);
 };
 
-const operate = function (x, y, operator) {
-    switch (operator) {
+const operate = function () {
+    switch (OPERATOR) {
         case "+":
-            return add(x, y);
+            return add(FIRST_OPERAND, SECOND_OPERAND);
         case "-":
-            return subtract(x, y);
+            return subtract(FIRST_OPERAND, SECOND_OPERAND);
         case "×":
-            return multiply(x, y);
+            return multiply(FIRST_OPERAND, SECOND_OPERAND);
         case "÷":
-            return divide(x, y);
+            return divide(FIRST_OPERAND, SECOND_OPERAND);
         default:
             return "Invalid Operator";
     }
