@@ -17,3 +17,22 @@ const numbersButtonsElements = document.querySelectorAll(".buttons--number");
 const operatorButtonElement = document.querySelectorAll(".button--operator");
 const decimalButtonElement = document.querySelector(".button--decimal");
 const equalButtonElement = document.querySelector(".button--equal");
+
+// HELPER FUNCTIONS //
+
+const add = function (a, b) {
+    return parseFloat(a) + parseFloat(b);
+};
+
+const subtract = function (a, b) {
+    return parseFloat(a) - parseFloat(b);
+};
+
+const multiply = function (a, b) {
+    return parseFloat(a) * parseFloat(b);
+};
+
+const divide = function (a, b) {
+    if (parseFloat(b) === 0) return "Division by zero is undefined";
+    return parseFloat(a) / parseFloat(b);
+};
