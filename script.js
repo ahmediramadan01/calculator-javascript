@@ -40,7 +40,7 @@ const multiply = function (a, b) {
 };
 
 const divide = function (a, b) {
-    if (parseFloat(b) === 0) return "Division by zero is undefined";
+    if (parseFloat(b) === 0) return "UNDEFINED";
     return parseFloat(a) / parseFloat(b);
 };
 
