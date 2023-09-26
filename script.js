@@ -1,5 +1,12 @@
 "use strict";
 
+// GLOBAL VARIABLES //
+
+let OPERATOR = "",
+    FIRST_OPERAND = "0",
+    SECOND_OPERAND = "",
+    DISPLAY_VALUE = "";
+
 // DOM ELEMENTS //
 
 // Display Elements
