@@ -36,3 +36,18 @@ const divide = function (a, b) {
     if (parseFloat(b) === 0) return "Division by zero is undefined";
     return parseFloat(a) / parseFloat(b);
 };
+
+const operate = function (x, y, operator) {
+    switch (operator) {
+        case "+":
+            return add(x, y);
+        case "-":
+            return subtract(x, y);
+        case "×":
+            return multiply(x, y);
+        case "÷":
+            return divide(x, y);
+        default:
+            return "Invalid Operator";
+    }
+};
