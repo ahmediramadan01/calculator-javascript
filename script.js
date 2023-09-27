@@ -140,8 +140,6 @@ const getOperationResult = function (event) {
 };
 
 const clearEntry = function (event) {
-    event.preventDefault();
-
     if (OPERATOR === "") {
         if (DISPLAY_VALUE === "0" || DISPLAY_VALUE === "" || DISPLAY_VALUE.length === 1) {
             DISPLAY_VALUE = "0";
@@ -202,5 +200,8 @@ window.addEventListener("keydown", function (event) {
     } else if (event.key === "=" || event.key === "Enter") {
         event.preventDefault();
         getOperationResult();
+    } else if (event.key === "Backspace" || event.key === "Delete") {
+        event.preventDefault();
+        clearEntry();
     }
 });
