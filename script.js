@@ -89,8 +89,6 @@ const appendNumbers = function (event) {
 };
 
 const appendOperator = function (event) {
-    event.preventDefault();
-
     if (FIRST_OPERAND && SECOND_OPERAND && OPERATOR) {
         DISPLAY_VALUE = operate(FIRST_OPERAND, SECOND_OPERAND, OPERATOR);
         FIRST_OPERAND = DISPLAY_VALUE;
@@ -99,7 +97,7 @@ const appendOperator = function (event) {
         SECOND_OPERAND = "";
     }
 
-    const clickedOperator = event.target.closest(".button--operator").dataset.value;
+    const clickedOperator = event || event.target.closest(".button--operator").dataset.value;
     OPERATOR = clickedOperator;
 
     DISPLAY_VALUE = "";
@@ -194,5 +192,11 @@ window.addEventListener("keydown", function (event) {
     if (!isNaN(+event.key)) {
         event.preventDefault();
         appendNumbers(event);
+    } else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
+        event.preventDefault();
+        if (event.key === "+") appendOperator("+");
+        else if (event.key === "-") appendOperator("-");
+        else if (event.key === "*") appendOperator("×");
+        else if (event.key === "/") appendOperator("÷");
     }
 });
