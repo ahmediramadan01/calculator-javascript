@@ -183,8 +183,9 @@ clearEntryButtonElement.addEventListener("click", clearEntry);
 clearButtonElement.addEventListener("click", clearDisplay);
 
 window.addEventListener("keydown", function (event) {
+    event.preventDefault();
+
     if (!isNaN(+event.key)) {
-        event.preventDefault();
         appendNumbers(event);
     } else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
         event.preventDefault();
@@ -193,16 +194,12 @@ window.addEventListener("keydown", function (event) {
         else if (event.key === "*") appendOperator("×");
         else if (event.key === "/") appendOperator("÷");
     } else if (event.key === ".") {
-        event.preventDefault();
         appendDecimalPoint(event);
     } else if (event.key === "=" || event.key === "Enter") {
-        event.preventDefault();
         getOperationResult();
     } else if (event.key === "Backspace" || event.key === "Delete") {
-        event.preventDefault();
         clearEntry();
     } else if (event.key === "Escape") {
-        event.preventDefault();
         clearDisplay();
     }
 });
