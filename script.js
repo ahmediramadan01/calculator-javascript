@@ -64,3 +64,34 @@ function updateCurrentDisplay() {
     displayOperatorElement.textContent = OPERATOR;
     displaySecondElement.textContent = SECOND_OPERAND;
 }
+
+// CALLBACK FUNCTIONS //
+
+const appendNumbers = function (event) {
+    event.preventDefault();
+
+    const clickedNumber = event.target.dataset.value;
+    if (OPERATOR === "" && FIRST_OPERAND.length <= 10) {
+        if (DISPLAY_VALUE === "0" || DISPLAY_VALUE === "") {
+            DISPLAY_VALUE = clickedNumber;
+        } else {
+            DISPLAY_VALUE += clickedNumber;
+        }
+        FIRST_OPERAND = DISPLAY_VALUE;
+    } else if (OPERATOR !== "" && SECOND_OPERAND.length <= 10) {
+        if (DISPLAY_VALUE === "0" || DISPLAY_VALUE === "") {
+            DISPLAY_VALUE = clickedNumber;
+        } else {
+            DISPLAY_VALUE += clickedNumber;
+        }
+        SECOND_OPERAND = DISPLAY_VALUE;
+    }
+
+    updateCurrentDisplay();
+};
+
+// EVENT LISTENERS //
+
+numbersButtonsElements.forEach((button) => {
+    button.addEventListener("click", appendNumbers);
+});
