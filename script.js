@@ -106,8 +106,6 @@ const appendOperator = function (event) {
 };
 
 const appendDecimalPoint = function (event) {
-    event.preventDefault();
-
     if (!DISPLAY_VALUE.includes(".")) {
         if (DISPLAY_VALUE === "" || DISPLAY_VALUE === "0") {
             DISPLAY_VALUE = "0.";
@@ -198,5 +196,8 @@ window.addEventListener("keydown", function (event) {
         else if (event.key === "-") appendOperator("-");
         else if (event.key === "*") appendOperator("×");
         else if (event.key === "/") appendOperator("÷");
+    } else if (event.key === ".") {
+        event.preventDefault();
+        appendDecimalPoint(event);
     }
 });
