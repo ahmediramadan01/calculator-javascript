@@ -167,6 +167,18 @@ const clearEntry = function (event) {
     updateCurrentDisplay();
 };
 
+const clearDisplay = function (event) {
+    event.preventDefault();
+
+    OPERATOR = "";
+    FIRST_OPERAND = "0";
+    SECOND_OPERAND = "";
+    DISPLAY_VALUE = "0";
+    displayEqualElement.textContent = "";
+    displayPreviousElement.textContent = "";
+    updateCurrentDisplay();
+};
+
 // EVENT LISTENERS //
 
 numbersButtonsElements.forEach((button) => {
@@ -178,3 +190,4 @@ operatorButtonElement.forEach((button) => {
 decimalButtonElement.addEventListener("click", appendDecimalPoint);
 equalButtonElement.addEventListener("click", getOperationResult);
 clearEntryButtonElement.addEventListener("click", clearEntry);
+clearButtonElement.addEventListener("click", clearDisplay);
