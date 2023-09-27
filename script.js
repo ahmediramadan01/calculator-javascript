@@ -68,9 +68,7 @@ function updateCurrentDisplay() {
 // CALLBACK FUNCTIONS //
 
 const appendNumbers = function (event) {
-    event.preventDefault();
-
-    const clickedNumber = event.target.dataset.value;
+    const clickedNumber = event.key || event.target.dataset.value;
     if (OPERATOR === "" && FIRST_OPERAND.length <= 10) {
         if (DISPLAY_VALUE === "0" || DISPLAY_VALUE === "") {
             DISPLAY_VALUE = clickedNumber;
@@ -191,3 +189,10 @@ decimalButtonElement.addEventListener("click", appendDecimalPoint);
 equalButtonElement.addEventListener("click", getOperationResult);
 clearEntryButtonElement.addEventListener("click", clearEntry);
 clearButtonElement.addEventListener("click", clearDisplay);
+
+window.addEventListener("keydown", function (event) {
+    if (!isNaN(+event.key)) {
+        event.preventDefault();
+        appendNumbers(event);
+    }
+});
