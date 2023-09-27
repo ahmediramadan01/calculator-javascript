@@ -58,3 +58,9 @@ const operate = function () {
             return "Invalid Operator";
     }
 };
+
+function updateCurrentDisplay() {
+    displayFirstElement.textContent = FIRST_OPERAND;
+    displayOperatorElement.textContent = OPERATOR;
+    displaySecondElement.textContent = SECOND_OPERAND;
+}
