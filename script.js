@@ -97,7 +97,7 @@ const appendOperator = function (event) {
         SECOND_OPERAND = "";
     }
 
-    const clickedOperator = event || event.target.closest(".button--operator").dataset.value;
+    const clickedOperator = event.target?.closest(".button--operator").dataset.value || event;
     OPERATOR = clickedOperator;
 
     DISPLAY_VALUE = "";
@@ -188,7 +188,6 @@ window.addEventListener("keydown", function (event) {
     if (!isNaN(+event.key)) {
         appendNumbers(event);
     } else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
-        event.preventDefault();
         if (event.key === "+") appendOperator("+");
         else if (event.key === "-") appendOperator("-");
         else if (event.key === "*") appendOperator("×");
