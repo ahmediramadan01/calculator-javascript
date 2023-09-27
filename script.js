@@ -122,7 +122,7 @@ const appendDecimalPoint = function (event) {
 };
 
 const getOperationResult = function (event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     if (FIRST_OPERAND && SECOND_OPERAND && OPERATOR) {
         DISPLAY_VALUE = operate(FIRST_OPERAND, SECOND_OPERAND, OPERATOR);
@@ -199,5 +199,8 @@ window.addEventListener("keydown", function (event) {
     } else if (event.key === ".") {
         event.preventDefault();
         appendDecimalPoint(event);
+    } else if (event.key === "=" || event.key === "Enter") {
+        event.preventDefault();
+        getOperationResult();
     }
 });
