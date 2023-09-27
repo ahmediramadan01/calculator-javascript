@@ -90,8 +90,30 @@ const appendNumbers = function (event) {
     updateCurrentDisplay();
 };
 
+const appendOperator = function (event) {
+    event.preventDefault();
+
+    if (FIRST_OPERAND && SECOND_OPERAND && OPERATOR) {
+        DISPLAY_VALUE = operate(FIRST_OPERAND, SECOND_OPERAND, OPERATOR);
+        FIRST_OPERAND = DISPLAY_VALUE;
+        DISPLAY_VALUE = "";
+        displayEqualElement.textContent = "";
+        SECOND_OPERAND = "";
+    }
+
+    const clickedOperator = event.target.closest(".button--operator").dataset.value;
+    OPERATOR = clickedOperator;
+
+    DISPLAY_VALUE = "";
+
+    updateCurrentDisplay();
+};
+
 // EVENT LISTENERS //
 
 numbersButtonsElements.forEach((button) => {
     button.addEventListener("click", appendNumbers);
+});
+operatorButtonElement.forEach((button) => {
+    button.addEventListener("click", appendOperator);
 });
