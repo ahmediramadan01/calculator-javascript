@@ -160,8 +160,6 @@ const clearEntry = function (event) {
 };
 
 const clearDisplay = function (event) {
-    event.preventDefault();
-
     OPERATOR = "";
     FIRST_OPERAND = "0";
     SECOND_OPERAND = "";
@@ -203,5 +201,8 @@ window.addEventListener("keydown", function (event) {
     } else if (event.key === "Backspace" || event.key === "Delete") {
         event.preventDefault();
         clearEntry();
+    } else if (event.key === "Escape") {
+        event.preventDefault();
+        clearDisplay();
     }
 });
