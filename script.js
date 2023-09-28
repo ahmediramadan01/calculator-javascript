@@ -24,6 +24,7 @@ const numbersButtonsElements = document.querySelectorAll(".button--number");
 const operatorButtonElement = document.querySelectorAll(".button--operator");
 const decimalButtonElement = document.querySelector(".button--decimal");
 const equalButtonElement = document.querySelector(".button--equal");
+const percentageButtonElement = document.querySelector(".button--percentage");
 
 // HELPER FUNCTIONS //
 
@@ -109,21 +110,18 @@ const appendDecimalPoint = function (event) {
     if (!DISPLAY_VALUE.includes(".")) {
         if (DISPLAY_VALUE === "" || DISPLAY_VALUE === "0") {
             DISPLAY_VALUE = "0.";
-            if (!OPERATOR) FIRST_OPERAND = DISPLAY_VALUE;
-            else SECOND_OPERAND = DISPLAY_VALUE;
         } else {
             DISPLAY_VALUE += ".";
-            if (!OPERATOR) FIRST_OPERAND = DISPLAY_VALUE;
-            else SECOND_OPERAND = DISPLAY_VALUE;
         }
+
+        if (!OPERATOR) FIRST_OPERAND = DISPLAY_VALUE;
+        else SECOND_OPERAND = DISPLAY_VALUE;
     }
 
     updateCurrentDisplay();
 };
 
 const getOperationResult = function (event) {
-    // event.preventDefault();
-
     if (FIRST_OPERAND && SECOND_OPERAND && OPERATOR) {
         DISPLAY_VALUE = operate(FIRST_OPERAND, SECOND_OPERAND, OPERATOR);
 
@@ -169,6 +167,21 @@ const clearDisplay = function (event) {
     updateCurrentDisplay();
 };
 
+const divideByHundred = function (event) {
+    if (DISPLAY_VALUE === "" || DISPLAY_VALUE === "0" || DISPLAY_VALUE === "0.") {
+        DISPLAY_VALUE = "0.00";
+    } else if (DISPLAY_VALUE == 0) {
+        DISPLAY_VALUE += "00";
+    } else {
+        DISPLAY_VALUE = DISPLAY_VALUE / 100;
+    }
+
+    if (!OPERATOR) FIRST_OPERAND = DISPLAY_VALUE;
+    else SECOND_OPERAND = DISPLAY_VALUE;
+
+    updateCurrentDisplay();
+};
+
 // EVENT LISTENERS //
 
 numbersButtonsElements.forEach((button) => {
@@ -181,6 +194,7 @@ decimalButtonElement.addEventListener("click", appendDecimalPoint);
 equalButtonElement.addEventListener("click", getOperationResult);
 clearEntryButtonElement.addEventListener("click", clearEntry);
 clearButtonElement.addEventListener("click", clearDisplay);
+percentageButtonElement.addEventListener("click", divideByHundred);
 
 window.addEventListener("keydown", function (event) {
     if (!isNaN(+event.key)) {
@@ -204,5 +218,8 @@ window.addEventListener("keydown", function (event) {
     } else if (event.key === "Escape") {
         event.preventDefault();
         clearDisplay();
+    } else if (event.key === "%") {
+        event.preventDefault();
+        divideByHundred();
     }
 });
