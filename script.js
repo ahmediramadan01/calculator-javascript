@@ -5,7 +5,7 @@
 let OPERATOR = "",
     FIRST_OPERAND = "0",
     SECOND_OPERAND = "",
-    DISPLAY_VALUE = "";
+    DISPLAY_VALUE = "0";
 
 // DOM ELEMENTS //
 
@@ -14,6 +14,7 @@ const displayPreviousElement = document.querySelector(".display__previous");
 const displayEqualElement = document.querySelector(".display__equal");
 const displayCurrentElement = document.querySelector(".display__current");
 const displayFirstElement = document.querySelector(".display__first");
+displayFirstElement.textContent = FIRST_OPERAND;
 const displayOperatorElement = document.querySelector(".display__operator");
 const displaySecondElement = document.querySelector(".display__second");
 
@@ -25,6 +26,7 @@ const operatorButtonElement = document.querySelectorAll(".button--operator");
 const decimalButtonElement = document.querySelector(".button--decimal");
 const equalButtonElement = document.querySelector(".button--equal");
 const percentageButtonElement = document.querySelector(".button--percentage");
+const plusMinusButtonElement = document.querySelector(".button--plus-minus");
 
 // HELPER FUNCTIONS //
 
@@ -65,6 +67,7 @@ function updateCurrentDisplay() {
     displayOperatorElement.textContent = OPERATOR;
     displaySecondElement.textContent = SECOND_OPERAND;
 }
+updateCurrentDisplay();
 
 // CALLBACK FUNCTIONS //
 
@@ -177,6 +180,19 @@ const divideByHundred = function (event) {
         DISPLAY_VALUE = DISPLAY_VALUE / 100;
     }
 
+    if (FIRST_OPERAND) FIRST_OPERAND = DISPLAY_VALUE;
+    else SECOND_OPERAND = DISPLAY_VALUE;
+
+    updateCurrentDisplay();
+};
+
+const togglePlusMinus = function (event) {
+    if (DISPLAY_VALUE === "" || DISPLAY_VALUE === "0") {
+        DISPLAY_VALUE = "0";
+    } else {
+        DISPLAY_VALUE *= -1;
+    }
+
     if (!OPERATOR) FIRST_OPERAND = DISPLAY_VALUE;
     else SECOND_OPERAND = DISPLAY_VALUE;
 
@@ -196,6 +212,7 @@ equalButtonElement.addEventListener("click", getOperationResult);
 clearEntryButtonElement.addEventListener("click", clearEntry);
 clearButtonElement.addEventListener("click", clearDisplay);
 percentageButtonElement.addEventListener("click", divideByHundred);
+plusMinusButtonElement.addEventListener("click", togglePlusMinus);
 
 window.addEventListener("keydown", function (event) {
     if (!isNaN(+event.key)) {
