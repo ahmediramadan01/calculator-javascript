@@ -70,7 +70,10 @@ function updateCurrentDisplay() {
 
 const appendNumbers = function (event) {
     const clickedNumber = event.key || event.target.dataset.value;
-    if (OPERATOR === "" && FIRST_OPERAND.length <= 10) {
+    if (OPERATOR === "-" && !FIRST_OPERAND) {
+        OPERATOR = "";
+        DISPLAY_VALUE = "-";
+    } else if (OPERATOR === "" && FIRST_OPERAND.length <= 10) {
         if (DISPLAY_VALUE === "0" || DISPLAY_VALUE === "") {
             DISPLAY_VALUE = clickedNumber;
         } else {
