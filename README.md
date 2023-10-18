@@ -1,6 +1,13 @@
-# Calculator: **[LIVE](https://ahmediramadan01.github.io/calculator/ "Calculator's Live Preview")**
+# Calculator: **[LIVE](https://ahmediramadan01.github.io/calculator-javascript/ "Calculator's Live Preview")**
 
-### Technologies: HTML, CSS, JavaScript
+## Technologies: HTML, CSS, JavaScript
+
+### Features:
+
+-   Supports keyboard
+-   Handles arithmetic operations including percentage (%) functionality
+-   Supports clear (C) and clear entry (CE) functionality
+-   Toggles between negative and positive on a given input (+/-)
 
 ![Calculator's Desktop Screenshot](./images/calculator-desktop.png?raw=true "Calculator (Desktop)")
 
